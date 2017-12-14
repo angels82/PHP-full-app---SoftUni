@@ -1,0 +1,23 @@
+List all products for user {{ app.user.username }}
+
+<ol>
+    {% if products %}
+        {% for item in products %}
+
+
+            <li>
+
+                {{ item.name }}
+                <a href="{{ path('product_update', {'id':item.id}) }}" >[ Edit Product ]</a>
+
+
+
+
+            </li>
+
+
+        {% endfor %}
+    {% else %}
+        No products found in this category
+    {% endif %}
+</ol>

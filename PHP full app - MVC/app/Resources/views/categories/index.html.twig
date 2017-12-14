@@ -1,0 +1,22 @@
+List all categories
+
+<ol>
+    {% if category %}
+    {% for item in category %}
+
+
+        <li>
+
+            <a href="{{ path('category_view_all_products',{'id':item.id}) }}"> {{ item.name }}</a>
+                <a href="{{ path('category_delete',{'id':item.id}) }}">[ delete ]</a>
+
+
+
+        </li>
+
+
+    {% endfor %}
+    {% else %}
+            No categories found
+    {% endif %}
+</ol>

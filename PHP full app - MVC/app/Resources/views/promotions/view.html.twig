@@ -1,0 +1,17 @@
+{% if products|length > 0 %}
+
+    <div class="row">
+    {% for index,product in products %}
+        {% if index % 3 == 0 and index > 0 %}
+            </div>
+            <div class="row">
+        {% else %}
+
+        {% endif %}
+
+    {% endfor %}
+    </div>
+
+{% else %}
+    <p>Sorry, no products yet. :(</p>
+{% endif %}

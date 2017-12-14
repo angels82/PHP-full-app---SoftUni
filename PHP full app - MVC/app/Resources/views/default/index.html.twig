@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+Index page
+    {% if app.user %}
+    {{ app.user.getUsername }}
+        {% endif %}
+{% endblock %}

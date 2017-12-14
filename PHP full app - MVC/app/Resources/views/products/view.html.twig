@@ -1,0 +1,9 @@
+{{ product.name }}<br>
+{{ product.description }}<br>
+{{ product.price }}<br>
+{{ product.quantity }}<br>
+<a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a><br>
+
+
+
+<img src="/../{{ asset('images/' ~ product.imageFile) }}" width="10%">

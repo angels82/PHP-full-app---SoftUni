@@ -1,0 +1,22 @@
+List all categories
+
+<ol>
+    {% if products %}
+        {% for item in products %}
+
+
+            <li>
+
+                {{ item.name }}
+
+
+
+
+            </li>
+
+
+        {% endfor %}
+    {% else %}
+        No products found in this category
+    {% endif %}
+</ol>
