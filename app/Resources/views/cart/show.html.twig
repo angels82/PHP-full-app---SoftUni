@@ -1,0 +1,32 @@
+{% for message in app.session.flashBag.get('danger') %}
+{{ message }}
+
+{% endfor %}
+
+{% for message1 in app.session.flashBag.get('dangercash') %}
+    {{ message1 }}
+
+{% endfor %}
+<ol>
+    {% if arr != null %}
+
+{% set sum = 0 %}
+        {% for key, value in arr %}
+
+            {{ key }}
+            {{ value.count }}
+            {{ value.price }}
+            {{ value.id }}
+            <a href="{{ path('remove_item', {'itemProduct':value.id,'itemCart':cart_data.id}) }}">Remove</a>
+            {% set sum = sum + value.count*value.price %}
+<br>
+
+        {% endfor %}
+
+{{ sum }}
+
+    {% else %}
+        No products found
+    {% endif %}
+</ol>
+

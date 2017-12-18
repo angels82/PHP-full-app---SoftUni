@@ -1,0 +1,16 @@
+{% if products|length > 0 %}
+
+    <div class="row">
+    {% for index,product in products %}
+        {{ product.name }}<br>
+        {{ product.description }}<br>
+        {{ product.category }}<br>
+        {{ product.price|round(2, 'common') }}<br>
+
+
+    {% endfor %}
+    </div>
+
+{% else %}
+    <p>Sorry, no products yet. :(</p>
+{% endif %}

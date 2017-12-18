@@ -1,0 +1,19 @@
+List all products
+
+<ol>
+    {% for product in products %}
+        {% if product.quantity > 0 and product.selling == 'Yes'%}
+        <li>
+
+                <a href="{{ path('product_view', {'id':product.id}) }}"> {{ product.name }}</a>
+                <img src="/../{{ asset('images/' ~ product.imageFile) }} " width="10%">
+                {% if user == product.user %}
+                Personal product: <a href="{{ path('product_update', {'id':product.id}) }}"> [ Edit ]</a>
+                        <a href="{{ path('product_delete', {'id':product.id}) }}"> [ Delete ]</a>
+                {% elseif  user.roles[0]=='ROLE_USER' %}
+                <a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a>
+                {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ol>

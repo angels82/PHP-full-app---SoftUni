@@ -1,0 +1,15 @@
+{{ product.name }}<br>
+{{ product.description }}<br>
+{{ product.price }}<br>
+{{ product.quantity }}<br>
+Sold By: {{ product.owner }}
+{% if user == product.user %}
+    Personal product: <a href="{{ path('product_update', {'id':product.id}) }}"> [ Edit ]</a>
+    <a href="{{ path('product_delete', {'id':product.id}) }}"> [ Delete ]</a>
+{% elseif user.roles[0]=='ROLE_USER' %}
+    <a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a>
+{% endif %}
+
+
+
+<img src="/../{{ asset('images/' ~ product.imageFile) }}" width="10%">
