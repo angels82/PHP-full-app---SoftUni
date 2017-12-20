@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * @property  session
- * @Security("has_role('ROLE_ADMIN')")
+ * @Security("has_role('ROLE_USER')")
  *
  */
 class CartController extends Controller
@@ -26,13 +26,25 @@ class CartController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    /*public function indexAction(Request $request)
+    public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ));
-    }*/
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $user_cart = $this->getDoctrine()
+            ->getRepository('AppBundle:Cart')
+            ->findBy(['user' => $user]);
+        if ( $user_cart )
+        {
+            $user_products = $this->getDoctrine()
+                ->getRepository('AppBundle:Shipping')
+                ->findBy( array('cart' => $user_cart[0]->getId()) );
+            $count = 0;
+            foreach ($user_products as $item) {
+                $count++;
+            }
+        }
+
+        return $this->render('default/index.html.twig', array('count'=>$count));
+    }
     /**
      * @Route("/cart", name="view_cart")
      */

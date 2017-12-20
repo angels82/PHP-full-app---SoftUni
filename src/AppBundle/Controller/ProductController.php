@@ -36,7 +36,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/personal_products", name="personal")
+     * @Route("/profile/personal_products", name="personal_products")
      * @return Response
      * @Security("has_role('ROLE_USER')")
      */

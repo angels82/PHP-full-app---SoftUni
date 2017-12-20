@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends Controller
 {
     /**
-     * @Route("/register")
+     * @Route("/register", name="register")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -48,6 +48,20 @@ class UserController extends Controller
      */
     public function viewProfileAction()
     {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $user_cart = $this->getDoctrine()
+            ->getRepository('AppBundle:Cart')
+            ->findBy(['user' => $user]);
+        if ( $user_cart )
+        {
+            $user_products = $this->getDoctrine()
+                ->getRepository('AppBundle:Shipping')
+                ->findBy( array('cart' => $user_cart[0]->getId()) );
+            $count = 0;
+            foreach ($user_products as $item) {
+                $count++;
+            }
+        }
         $user = $this->getUser();
         return $this->render('user/profile_view.html.twig',['user' => $user]);
     }

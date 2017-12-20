@@ -260,4 +260,20 @@ class AdminPromotionController extends Controller
             "add_form" => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("admin/admin_panel", name="admin_panel")
+     *
+     * @param Request $request
+     * @return Response
+     */
+
+
+    public function adminPanelAction(Request $request)
+    {
+
+
+
+        return $this->render("admin/panel.html.twig");
+    }
 }
