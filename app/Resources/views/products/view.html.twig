@@ -1,15 +1,29 @@
-{{ product.name }}<br>
-{{ product.description }}<br>
-{{ product.price }}<br>
-{{ product.quantity }}<br>
-Sold By: {{ product.owner }}
-{% if user == product.user %}
-    Personal product: <a href="{{ path('product_update', {'id':product.id}) }}"> [ Edit ]</a>
-    <a href="{{ path('product_delete', {'id':product.id}) }}"> [ Delete ]</a>
-{% elseif user.roles[0]=='ROLE_USER' %}
-    <a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a>
-{% endif %}
+{% extends 'base.html.twig' %}
+{% block title %}Personal Products{% endblock %}
+
+
+{% block main %}
+    <div style="text-align:center"><img src='{{ asset('images/' ~ product.imageFile) }}' style='width:300px; margin:auto;'>
+        <div style="color:white">
+            <div id='title'> ITEM NAME: {{ product.name }}</div>
+            <div id='title'> DESCRIPTION: {{ product.description }}</div>
+            <div id='title'> AVAILABLE QUANTITY: {{ product.quantity }}</div>
+            <div id='title'> PRICE: {{ product.price }}</div>
+            <div id='title'> SOLD BY: {{ product.owner }}</div>
+            {% if user == product.user %}
+                Personal product: <a href="{{ path('product_update', {'id':product.id}) }}"> [ Edit ]</a>
+                <a href="{{ path('product_delete', {'id':product.id}) }}"> [ Delete ]</a>
+            {% elseif user.roles[0]=='ROLE_USER' %}
+                <a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
 
 
 
-<img src="/../{{ asset('images/' ~ product.imageFile) }}" width="10%">
+
+

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+{% block title %}Administrator Panel{% endblock %}
+
+
+{% block main %}
+
+        <div class="main" style='background:white'>
+            <div class="wrap" style='background:white'>
+
+
+
+
+                <div class="col_1_of_3 span_1_of_3" style='background:white; margin: 10 auto'><a href="#"></a>
+                    <div class="view view-fifth">
+                        <div class="top_box">
+                            <h3 class="m_1"></h3>
+                            <p class="m_2"></p>
+                            <div class="grid_img">
+                                <div class="css3"><h3>Manage Promotions</h3></div>
+                                <hr>
+                                <ul>
+                                    <li><a href='{{ path('admin_list_promotions') }}'>View All Promotions</a></li>
+                                    <li><a href='{{ path('admin_add_promotion_to_category') }}'>Add Promotion to Category</a></li>
+                                    <li><a href='{{ path('admin_add_promotion_to_all_products') }}'>Add Promotion to All Products</a></li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="col_1_of_3 span_1_of_3" style='background:white; margin: 10 auto'><a href="#"></a>
+                    <div class="view view-fifth">
+                        <div class="top_box">
+                            <h3 class="m_1"></h3>
+                            <p class="m_2"></p>
+                            <div class="grid_img">
+                                <div class="css3"><h3>Manage Categories</h3></div>
+                                <hr>
+                                <ul>
+                                    <li><a href='{{ path('category_view') }}'>View All Categories</a></li>
+                                    <li><a href='{{ path('categories_create') }}'>Create New Category</a></li>
+
+                                    <br><br>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+
+
+
+
+
+                <div class="col_1_of_3 span_1_of_3" style='background:white; margin: 10 auto'><a href="#"></a>
+                    <div class="view view-fifth">
+                        <div class="top_box">
+                            <h3 class="m_1"></h3>
+                            <p class="m_2"></p>
+                            <div class="grid_img">
+                                <div class="css3"><h3>Manage Products</h3></div>
+                                <hr>
+                                <ul>
+                                    <li><a href='{{ path('products_index') }}'>View All Products</a></li>
+                                    <li><a href='{{ path('product_create') }}'>Add New Product</a></li>
+
+                                    <br><br>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+
+
+
+
+
+
+            </div></div></div>
+
+
+{% endblock %}
