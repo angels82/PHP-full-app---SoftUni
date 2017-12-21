@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
 use AppBundle\Form\CategoryType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ class CategoryController extends Controller
      * @Route("/categories/create", name="categories_create")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function categoryCreateAction(Request $request){
 
@@ -44,7 +46,7 @@ class CategoryController extends Controller
      * @param $id
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/categories/delete/{id}", name="category_delete", requirements={"id": "\d+"})
      */
     public function deleteCategoryAction($id)

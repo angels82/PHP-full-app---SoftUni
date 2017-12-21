@@ -39,13 +39,34 @@ class Product
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="imageName", type="string", length=255)
+     * @ORM\Column(name="owner", type="string", length=255)
      */
-    private $imageName;
+    private $owner;
+    /**
+     * @var string
+     * @ORM\Column(name="selling", type="string", length=255)
+     */
+    private $selling;
+
+    /**
+     * @return string
+     */
+    public function getOwner(): string
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param string $owner
+     */
+    public function setOwner(string $owner)
+    {
+        $this->owner = $owner;
+    }
+
 
     /**
      * @ORM\Column(name="imageFile", type="string")
@@ -190,22 +211,7 @@ class Product
      *
      * @return product
      */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
 
-        return $this;
-    }
-
-    /**
-     * Get imageName
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
 
 
     public function setImageFile($imageFile)
@@ -262,10 +268,15 @@ class Product
     /**
      * Get price
      *
-     * @return string
+     * @return float
      */
     public function getPrice()
     {
+        if ($this->hasActivePromotion()) {
+            $discount = $this->price * $this->getActualPromotion()->getDiscount() / 100;
+            return $this->price - $discount;
+        }
+
         return $this->price;
     }
 
@@ -342,6 +353,23 @@ class Product
     public function hasActivePromotion()
     {
         return $this->getActualPromotion() !== null;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getSelling()
+    {
+        return $this->selling;
+    }
+
+    /**
+     * @param mixed $selling
+     */
+    public function setSelling($selling)
+    {
+        $this->selling = $selling;
     }
 }
 

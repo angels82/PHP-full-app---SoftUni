@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use function Symfony\Component\Debug\Tests\testHeader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Product;
@@ -24,6 +25,8 @@ class PromotionController extends Controller
         /** @var Promotion[]|ArrayCollection $promotions */
         $promotions = $this->getDoctrine()->getRepository(Promotion::class)
                 ->findNotExpiredQueryBuilder();
+
+
         //echo '<pre>'; var_dump($promotions); die();
 
         return $this->render("promotions/list.html.twig", [

@@ -13,17 +13,17 @@ use Doctrine\ORM\QueryBuilder;
  */
 class PromotionRepository extends EntityRepository
 {
-    /**
-     * @return QueryBuilder
-     */
+
     public function findNotExpiredQueryBuilder()
     {
-        return $this->createQueryBuilder("promotion")
+        $query = $this->createQueryBuilder("promotion")
             ->join("promotion.products", "products")
             ->addSelect("products")
             ->andWhere("promotion.endDate >= :now")
             ->andWhere("promotion.startDate <= :now")
-            ->setParameter("now", new \DateTime("now"));
+            ->setParameter("now", new \DateTime("now"))->getQuery();
+        $arr = $query->getResult();
+        return $arr;
     }
 
     /**
@@ -31,8 +31,10 @@ class PromotionRepository extends EntityRepository
      */
     public function findByQueryBuilder()
     {
-        return $this->createQueryBuilder("promotion")
+        $query = $this->createQueryBuilder("promotion")
             ->join("promotion.products", "products")
-            ->addSelect("products");
+            ->addSelect("products")->getQuery();
+        $arr = $query->getResult();
+        return $arr;
     }
 }

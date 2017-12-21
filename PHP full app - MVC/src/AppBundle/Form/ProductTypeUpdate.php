@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,6 +18,7 @@ class ProductTypeUpdate extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->setMethod('PATCH')
             ->add('name')
             ->add('description')
             ->add('category', EntityType::class,[
@@ -25,10 +27,20 @@ class ProductTypeUpdate extends AbstractType
                 'placeholder'=>'Choose a category',
                 'data_class' => null
             ])
-            ->add('imageName')
-            ->add('imageFile', FileType::class, array('data_class' => null))
+            ->add('imageFile', FileType::class, array('data_class' => null, 'required'=>false))
             ->add('quantity')
-            ->add('price')        ;
+            ->add('price')
+            ->add("promotions", EntityType::class, [
+                "class" => 'AppBundle\Entity\Promotion',
+                "multiple" => true,
+                "expanded" => true
+            ])
+        ->add('selling', ChoiceType::class, array(
+                'choices'  => array(
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                ), 'placeholder'=>'Put for selling'
+            ));
     }
 
     /**
@@ -37,7 +49,7 @@ class ProductTypeUpdate extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\product',
+            'data_class' => 'AppBundle\Entity\product'
 
         ));
     }

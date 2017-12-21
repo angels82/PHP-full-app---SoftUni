@@ -2,8 +2,11 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Annotations\Annotation;
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
+use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -84,10 +87,20 @@ class User implements UserInterface
      * @var double
      * @ORM\Column(name="cash", type="decimal", unique=false)
      */
-    private $cash = 50000;
+    private $cash = 0;
 
+    /**
+     *@var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Role", inversedBy="users")
+     * @ORM\JoinTable(name="user_roles", joinColumns={@ORM\joinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\joinColumn(name="role_id", referencedColumnName="id")})
+     */
+    private $roles;
 
-
+    public function __construct()
+    {
+        $this->roles=new ArrayCollection();
+    }
 
 
     /**
@@ -258,12 +271,19 @@ class User implements UserInterface
      * and populated in any number of different ways when the user object
      * is created.
      *
-     * @return (Role|string)[] The user roles
+     * @return (Roles|string)[] The user roles
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
-        return [];
+        $str=[];
+        foreach ($this->roles as $role) {
+            /**
+             * @var $role Role
+             */
+            $str[] = $role->getRole();
+        }
+
+        return $str;
     }
 
     /**
@@ -305,6 +325,21 @@ class User implements UserInterface
         $this->cash = $cash;
     }
 
+
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @param \AppBundle\Entity\Role $role
+     * @return User
+     */
+    public function addRole(\AppBundle\Entity\Role $role) {
+        $this->roles[]=$role;
+        return $this;
+    }
 
 }
 

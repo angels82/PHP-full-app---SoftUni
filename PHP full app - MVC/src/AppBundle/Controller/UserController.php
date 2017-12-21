@@ -3,16 +3,19 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Role;
+use AppBundle\Entity\Roles;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
     /**
-     * @Route("/register")
+     * @Route("/register", name="register")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -25,9 +28,13 @@ class UserController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
+            $roleRep = $this->getDoctrine()->getRepository(Role::class);
+            $userRole = $roleRep->findOneBy(['name'=>'ROLE_USER']);
+            $user->addRole($userRole);
             $em=$this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
 
             return $this->redirectToRoute('security_login');
         }
@@ -37,9 +44,24 @@ class UserController extends Controller
     /**
      * @Route("/profile", name="profile_view")
      * @return Response
+     * @Security("has_role('ROLE_USER')")
      */
     public function viewProfileAction()
     {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $user_cart = $this->getDoctrine()
+            ->getRepository('AppBundle:Cart')
+            ->findBy(['user' => $user]);
+        if ( $user_cart )
+        {
+            $user_products = $this->getDoctrine()
+                ->getRepository('AppBundle:Shipping')
+                ->findBy( array('cart' => $user_cart[0]->getId()) );
+            $count = 0;
+            foreach ($user_products as $item) {
+                $count++;
+            }
+        }
         $user = $this->getUser();
         return $this->render('user/profile_view.html.twig',['user' => $user]);
     }
@@ -48,6 +70,7 @@ class UserController extends Controller
      * @Route("/profile/edit", name="profile_edit")
      * @param Request $request
      * @return Response
+     * @Security("has_role('ROLE_USER')")
      */
     public function profileEditAction(Request $request){
 
@@ -78,6 +101,7 @@ class UserController extends Controller
      * @Route("/profile/change_password", name="change_password")
      * @param Request $request
      * @return Response
+     * @Security("has_role('ROLE_USER')")
      */
     public function changePasswordAction(Request $request){
 
@@ -111,6 +135,7 @@ class UserController extends Controller
     /**
      * @Route("/profile/personal_products", name="personal_products")
      * @return Response
+     * @Security("has_role('ROLE_USER')")
      */
     public function viewPersonalProductsAction(){
         $repo = $this->getDoctrine()->getRepository(User::class);

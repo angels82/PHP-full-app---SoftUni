@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,23 +14,37 @@ use AppBundle\Entity\Shipping;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * @property  session
- * @property  session
+ * @Security("has_role('ROLE_USER')")
+ *
  */
 class CartController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    /*public function indexAction(Request $request)
+    public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ));
-    }*/
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $user_cart = $this->getDoctrine()
+            ->getRepository('AppBundle:Cart')
+            ->findBy(['user' => $user]);
+        if ( $user_cart )
+        {
+            $user_products = $this->getDoctrine()
+                ->getRepository('AppBundle:Shipping')
+                ->findBy( array('cart' => $user_cart[0]->getId()) );
+            $count = 0;
+            foreach ($user_products as $item) {
+                $count++;
+            }
+        }
+
+        return $this->render('default/index.html.twig', array('count'=>$count));
+    }
     /**
      * @Route("/cart", name="view_cart")
      */
@@ -298,25 +313,41 @@ class CartController extends Controller
                 ->getRepository('AppBundle:Shipping')
                 ->findBy( array('cart' => $userCart[0]->getId()) );
 
-        /*if ($total > $userFunds) {
-            $this->session->getFlashBag()
-                ->add("danger", "You do not have enough funds in your account to complete the order");
+            /*if ($total > $userFunds) {
+                $this->session->getFlashBag()
+                    ->add("danger", "You do not have enough funds in your account to complete the order");
 
-            return false;
-        }*/
+                return false;
+            }*/
 
 
         $productsPlainText = [];
         foreach ($userProducts as $product) {
             $productId = $product->getProduct()->getId();
-            $product->setQuantity(0);
+            $availableQuantity = $this->getDoctrine()->getRepository(Product::class)->findOneBy(['id'=>$productId])->getQuantity();
+            //echo '<pre>'; var_dump($availableQuantity);die();
+            if ($availableQuantity < 1) {
+                $this->addFlash("danger", "Not enough stocks for some of the products in your cart");
+                return $this->redirectToRoute("view_cart");
+
+
+            }
+
+            if ($userFunds < $total) {
+                $this->addFlash("dangercash", "Not enough cash in your account.");
+                return $this->redirectToRoute("view_cart");
+
+
+            }
+                $product->setQuantity(0);
             $productPrice = $product->getProduct()->getPrice();
             $user->setCash($user->getCash() - $productPrice);
             $sellerId = $product->getProduct()->getUser()->getId();
             $seller = $this->getDoctrine()
                 ->getRepository('AppBundle:User')
                 ->findBy(['id' => $sellerId])[0];
-            $seller->setCash($seller->getCash() + $productPrice);
+            $role = $seller->getRoles();
+            if ($role=='ROLE_USER') $seller->setCash($seller->getCash() + $productPrice);
             $productForSeller = $this->getDoctrine()
                 ->getRepository('AppBundle:Product')
                 ->findBy(['name'=>$product->getProduct()->getName(),
@@ -329,7 +360,7 @@ class CartController extends Controller
                 ->findBy(['name'=>$product->getProduct()->getName(), 'description'=>$product->getProduct()->getDescription(), 'user'=>$user->getId()]);
 
 
-            //echo '<pre>'; var_dump(count($userCart));die();
+
 
             if(count($productsForUser) > 0) {
                 $productsForUser[0]->setQuantity($productsForUser[0]->getQuantity() + 1);
@@ -339,16 +370,20 @@ class CartController extends Controller
                 $newProduct = new Product();
                 $newProduct->setName($product->getProduct()->getName());
                 $newProduct->setDescription($product->getProduct()->getDescription());
-                $newProduct->setImageName($product->getProduct()->getImageName());
+
                 $newProduct->setImageFile($product->getProduct()->getImageFile());
                 $newProduct->setQuantity(1);
                 $newProduct->setPrice($product->getProduct()->getPrice());
                 $newProduct->setCategory($product->getProduct()->getCategory());
                 $newProduct->setUser($user);
+
+                $newProduct->setOwner('user');
                 $cart = $this->getDoctrine()
                     ->getRepository('AppBundle:Cart')
                     ->findBy(['user' => $user]);
+
                 $em->persist($user);
+                $em->persist($cartTotal);
 
                 $em->persist($newProduct);
 
@@ -367,8 +402,8 @@ class CartController extends Controller
             $em->persist($user);
 
             //$em->persist($newProduct);
-
-
+            $cartTotal[0]->setTotalPrice(0);
+            //$em->persist($cartTotal);
 
 
             $em->flush();

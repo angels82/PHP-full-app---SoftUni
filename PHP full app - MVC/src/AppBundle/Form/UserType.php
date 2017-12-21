@@ -28,6 +28,7 @@ class UserType extends AbstractType
             ->add('email')
             ->add('address')
             ->add('city')
+            ->add('cash')
             ->add('submit', SubmitType::class);
     }
     
