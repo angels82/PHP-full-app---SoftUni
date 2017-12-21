@@ -1,4 +1,5 @@
-{% if promotions == null %}
+
+{% if promotions|length > 0 %}
 
 
         {% for index,promo in promotions %}
@@ -10,7 +11,7 @@
                         {{ promo.name }}
                     </a>
                 </td>
-                <td>{{ promo.discount }}%</td>
+                <td>-{{ promo.discount }}%</td>
                 <td>{{ promo.startDate|date }}</td>
                 <td>{{ promo.endDate|date }}</td>
                 <td>{{ promo.productsWithActivePromo|length }}</td>

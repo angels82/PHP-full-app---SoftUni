@@ -1,22 +1,72 @@
-List all categories
-
-<ol>
-    {% if products %}
-        {% for item in products %}
+{% extends 'base.html.twig' %}
+{% block title %}Products{% endblock %}
 
 
-            <li>
+{% block main %}
+    <div class="main" style='background:white'>
+        <div class="wrap" style='background:white'>
+        {% if products %}
+            {% for item in products %}
+                {% if item.quantity > 0%}
+                    {% if item.selling == 'Yes' %}
+                <div class="col_1_of_3 span_1_of_3" style='background:black; margin: 10 auto'><a href="{{ path('product_view', {'id':item.id}) }}">
+                        <div class="view view-fifth">
+                            <div class="top_box">
+                                <h3 class="m_1">{{ item.name }}</h3>
 
-                {{ item.name }}
+                                <div class="grid_img">
+                                    <div class="css3" style="height: 150px"><img src="{{ asset('images/' ~ item.imageFile) }}" alt="Product Photo"  style="max-height: 100%; max-width: 100%"/></div>
+                                    <div class="mask">
+                                        <div class="info">Quick View</div>
+                                    </div>
+                                </div>
+                                <div class="price">Price: {{ item.price }} EUR</div>
+                                <div class="price">Available Quantity: {{ item.quantity }}</div>
+                            </div>
+                        </div>
+                        {% if app.user == item.user %}
+                            Personal product: <a href="{{ path('product_update', {'id':item.id}) }}"> [ Edit ]</a>
+                            <a href="{{ path('product_delete', {'id':item.id}) }}"> [ Delete ]</a>
+                        {% elseif user.roles[0]=='ROLE_USER' %}
+                            <ul class="list">
+                                <li>
+                                    <img src="{{ asset('images/plus.png') }}" alt=""/>
+                                    <ul class="icon1 sub-icon1 profile_img">
+                                        <li><a class="active-icon c1" href="{{ path('add_to_cart',{'productId':product.id}) }}"> Add To Cart </a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        {% endif %}
+
+                        <div class="clear"></div>
+                    </a></div>
+
+
+                </div>
+                </div>
+
+
+
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            No products found in this category
+        {% endif %}
 
 
 
 
-            </li>
 
 
-        {% endfor %}
-    {% else %}
-        No products found in this category
-    {% endif %}
-</ol>
+
+    <br>
+
+
+
+{% endblock %}
+{% block foot %}
+
+{% endblock %}
