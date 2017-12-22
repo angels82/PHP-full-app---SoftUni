@@ -1,64 +1,74 @@
+
 {% extends 'base.html.twig' %}
 {% block title %}Categories{% endblock %}
 
 
 {% block main %}
+    <div style="color: white">
     {% for message in app.session.flashBag.get('danger') %}
         {{ message }}
 
     {% endfor %}
+    </div>
+<div style="color: white">
 
     {% for message1 in app.session.flashBag.get('dangercash') %}
         {{ message1 }}
 
     {% endfor %}
+</div>
     <h1 style='margin:0; padding:0px'>Shopping Cart</h1>
 
     <div class="shopping-cart" style='background:white' style='padding:15px'>
         {% if app.user.roles[0] == 'ROLE_USER' %}
         {% if arr != null %}
-        <div class="column-labels" style='margin:15px'>
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price">Price</label>
-            <label class="product-quantity">Quantity</label>
-            <label class="product-removal">Remove</label>
-            <label class="product-line-price">Total</label>
-        </div>
+
 
 
         {% set sum = 0 %}
-        {% for key, value in arr %}
-        <div class="product">
-            <div class="product-image">
-                <img src="{{ asset('images/' ~value.imageFile) }}" style='width:100px'>
+        {% for key, value in products %}
+        <div class="product" style="height: 150px">
+            <div class="product-image" style="display: inline-block; width: 100px; ">
+                <img src="{{ asset('images/' ~ value.product.imageFile) }}" style='height:150px'>
             </div>
-            <div class="product-details">
-                <div class="product-title">{{ value.name }}</div>
-                <p class="product-description">{{ value.description }}</p>
+
+            <div class="product-details" style="display: inline-block; width: 100px;height:150px">
+                <div class="product-title" style="display: inline-block; width: 100px; "><strong>Product:</strong></div>
+                <div class="product-title" style="display: inline-block; width: 100px; ">{{ value.product.name }}</div>
+
             </div>
-            <div class="product-price">{{ value.price }}</div>
-            <div class="product-quantity">{{ value.count }}</div>
-            <div class="product-removal">
-                <a href="{{ path('remove_item', {'itemProduct':value.id,'itemCart':cart_data.id}) }}">Remove item</a>
+            <div style="display: inline-block;width: 100px;height:150px">
+                <div class="product-price" style="display: inline-block; width: 100px; vertical-align: middle; "><strong>Price:</strong></div>
+                <div class="product-price" style="display: inline-block; width: 100px; vertical-align: middle; ">{{ value.product.price }} EUR</div>
+                </div>
+            <div style="display: inline-block;width: 100px;height:150px">                <div class="product-quantity" style="display: inline-block; width: 100px;vertical-align: middle; "><strong>Quantity:</strong></div>
+                    <div class="product-quantity" style="display: inline-block; width: 100px;vertical-align: middle; ">1</div>
+
+                </div>
+
+                    <div class="product-removal" style="display: inline-block; width: 100px;vertical-align: bottom; height:150px;">
+                <a style="vertical-align: bottom " href="{{ path('remove_item', {'itemProduct':value.product.id,'itemCart':cart_data.id}) }}">Remove item</a>
+
+                    </div>
+            {% set sum = sum + value.product.price %}
+            {% set sumSingle = value.product.price %}
+
             </div>
-            {% set sum = sum + value.count*value.price %}
-            {% set sumSingle = value.count*value.price %}
-            <div class="product-line-price">{{ sumSingle }}</div>
-        </div>
+
+            <hr>
         {% endfor %}
 
 
 
         <div class="totals">
             <div class="totals-item">
-                <label>Subtotal:   </label>
-                <div class="totals-value" id="cart-subtotal">{{ sum }}</div>
+                <h1><strong>Subtotal:   </strong></h1>
+                <div class="totals-value" id="cart-subtotal"><h1><strong>{{ sum }} EUR</strong></h1></div>
             </div>
 
         </div>
-
-        <a href="{{ path('user_cart_checkout') }}" class="checkout">Checkout</a>
+<br><br>
+        <h1><a href="{{ path('user_cart_checkout') }}" class="checkout">Checkout</a></h1><br><br><br><br>
         {% else %}
             Your shopping cart is empty
         {% endif %}

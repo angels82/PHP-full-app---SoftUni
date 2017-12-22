@@ -1,1 +1,31 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+{% block title %}Register{% endblock %}
+
+
+{% block main %}
+    <div style="color: white">
+        {{ form_start(form) }}
+        {{ form_label(form.username) }}<br>
+        {{ form_widget(form.username) }}<br>
+        {{ form_label(form.name) }}<br>
+        {{ form_widget(form.name) }}<br>
+        {{ form_label(form.password.first) }}<br>
+        {{ form_widget(form.password.first) }}<br>
+        {{ form_label(form.password.second) }}<br>
+        {{ form_widget(form.password.second) }}<br>
+        {{ form_label(form.email) }}<br>
+        {{ form_widget(form.email) }}<br>
+        {{ form_label(form.address) }}<br>
+        {{ form_widget(form.address) }}<br>
+        {{ form_label(form.city) }}<br>
+        {{ form_widget(form.city) }}<br>
+        {{ form_label(form.cash) }}<br>
+        {{ form_widget(form.cash) }}<br><br>
+        {{ form_widget(form.submit) }}<br>
+        {{ form_end(form) }}
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,1 +1,31 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+{% block title %}Add New Product{% endblock %}
+
+
+{% block main %}
+    <div style="color: white">
+        {{ form_start(form) }}
+        {{ form_label(form.name) }}<br>
+        {{ form_widget(form.name) }}<br>
+        {{ form_label(form.description) }}<br>
+        {{ form_widget(form.description) }}%<br>
+        {{ form_label(form.category) }}<br>
+        {{ form_widget(form.category) }}<br>
+        {{ form_label(form.imageFile) }}<br>
+        {{ form_widget(form.imageFile) }}<br>
+        {{ form_label(form.quantity) }}<br>
+        {{ form_widget(form.quantity) }}<br>
+        {{ form_label(form.price) }}<br>
+        {{ form_widget(form.price) }}<br>
+        {{ form_label(form.promotions) }}<br>
+        {{ form_widget(form.promotions) }}<br>
+        {{ form_label(form.selling) }}
+        {{ form_widget(form.selling) }}<br>
+
+
+        <br><br>
+
+        {{ form_widget(form.submit) }}<br>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

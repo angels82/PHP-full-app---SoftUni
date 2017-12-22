@@ -21,8 +21,8 @@
                                             <h3 class="m_1"></h3>
                                             <p class="m_2"></p>
                                             <div class="grid_img">
-                                                <div class="css3">Phones</div>
-
+                                                <div class="css3">{{ item.name }}</div>
+                                                <div class="css3"><a href="{{ path('category_delete',{'id':item.id}) }}">[ Delete ]</a></div>
                                             </div>
 
                                         </div>
@@ -50,7 +50,7 @@
 
             {% endfor %}
         {% else %}
-            No categories found
+            <div style="color: white;"> No categories found</div>
         {% endif %}
     </ul>
 

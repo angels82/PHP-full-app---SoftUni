@@ -20,14 +20,19 @@
                                         <div class="info">Quick View</div>
                                     </div>
                                 </div>
-                                <div class="price">Price: {{ item.price }} EUR</div>
+                                {% if item.price == item.originalPrice %}
+                                    <div class="price">Price: {{ item.price }} EUR</div>
+                                {% else %}
+                                    <div class="price">Old Price: <strike>{{ item.originalPrice }} EUR</strike></div>
+                                    <div class="price">Promo Price: {{ item.price }} EUR</div>
+                                {% endif %}
                                 <div class="price">Available Quantity: {{ item.quantity }}</div>
                             </div>
                         </div>
                         {% if app.user == item.user %}
                             Personal product: <a href="{{ path('product_update', {'id':item.id}) }}"> [ Edit ]</a>
                             <a href="{{ path('product_delete', {'id':item.id}) }}"> [ Delete ]</a>
-                        {% elseif user.roles[0]=='ROLE_USER' %}
+                        {% elseif app.user and user.roles[0]=='ROLE_USER' %}
                             <ul class="list">
                                 <li>
                                     <img src="{{ asset('images/plus.png') }}" alt=""/>

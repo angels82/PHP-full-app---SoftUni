@@ -1,1 +1,11 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+{% block title %}Categories{% endblock %}
+
+
+{% block main %}
+    <div style="color: white;">Enter a name for the category</div>
+    {{ form_start(form) }}
+    <div>{{ form_widget(form.name) }}</div>
+    <div>{{ form_widget(form.submit) }}</div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,6 +1,20 @@
-{{ form_start(add_form) }}
-    {{ form_row(add_form.promotion) }}
+{% extends 'base.html.twig' %}
+{% block title %}Add Promotion{% endblock %}
 
-<button class="btn btn-success" formnovalidate>Go <span class="glyphicon glyphicon-plus-sign"></span></button>
 
-{{ form_end(add_form) }}
+{% block main %}
+    <div style="color: white">
+        {{ form_start(add_form) }}
+        {{ form_label(add_form.promotion) }}<br>
+        {{ form_widget(add_form.promotion) }}<br>
+        <br><br>
+
+        {{ form_widget(add_form.submit) }}<br>
+        {{ form_end(add_form) }}
+    </div>
+
+
+
+
+{% endblock %}
+

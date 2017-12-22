@@ -1,10 +1,42 @@
-<form name="authenticate" action="{{ path('security_login') }}" method="post">
-    Username: <input type="text" name="_username"><br>
-    Password: <input type="password" name="_password"><br>
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
-    <input type="submit" value="Login"><br>
-</form>
+{% extends 'base.html.twig' %}
+{% block title %}Administrator Panel{% endblock %}
 
-{% if error %}
-    {{ error.message }}
-    {% endif %}
+
+{% block main %}
+    <div class="login">
+        <div class="wrap">
+
+            <div class="col_1_of_login span_1_of_login">
+                <div class="login-title">
+                    <h4 class="title" style='color:white'>Login</h4>
+                    <div class="comments-area">
+                        <form name="authenticate" action="{{ path('security_login') }}" method="post">
+                            <p>
+                                <label>Username</label>
+                                <span>*</span>
+                                <input type="text" name="_username">
+                            </p>
+                            <p>
+                                <label>Password</label>
+                                <span>*</span>
+                                <input type="password" name="_password">
+                            </p>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
+                            <p>
+                                <input type="submit" value="Login">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% if error %}
+            <p style="color: white"> {{ error.message }}</p>
+            {% endif %}
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,28 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block title %}Administrator Panel{% endblock %}
 
-{% if promotions|length > 0 %}
 
-
-        {% for index,promo in promotions %}
-
+{% block main %}
+    {% if promotions|length > 0 %}
+        <table class="table table-responsive table-striped" style="color: white; border: 2px solid white">
             <tr>
-                <td>{{ promo.id }}</td>
-                <td>
-                    <a href="{{ path("promotions_view", {"id": promo.id}) }}">
-                        {{ promo.name }}
-                    </a>
-                </td>
-                <td>-{{ promo.discount }}%</td>
-                <td>{{ promo.startDate|date }}</td>
-                <td>{{ promo.endDate|date }}</td>
-                <td>{{ promo.productsWithActivePromo|length }}</td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Name</strong></td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Discount</strong></td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Start Date</strong></td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>End Date</strong></td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Number Of Products</strong></td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Actions</strong></td>
             </tr>
-        {% endfor %}
+            <tbody>
+            {% for promo in promotions %}
+                <tr>
+
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">
 
 
-    </table>
+                        {{ promo.name }}
+
+                    </td>
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.discount }}%</td>
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.startDate|date }}</td>
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.endDate|date }}</td>
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.productsWithActivePromo|length }}</td>
+                    <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">
+                        <a href="{{ path("promotions_view", {"id": promo.id}) }}">
+                            [ View Products ]
+                        </a>
+
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+
+    {% else %}
+        <div style="color: white;"> No promotions found</div>
+    {% endif %}
+
+
+{% endblock %}
 
 
 
-{% else %}
-    <p>Sorry, no active promotions at this time.</p>
-{% endif %}
+
+

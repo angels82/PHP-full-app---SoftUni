@@ -8,12 +8,17 @@
             <div id='title'> ITEM NAME: {{ product.name }}</div>
             <div id='title'> DESCRIPTION: {{ product.description }}</div>
             <div id='title'> AVAILABLE QUANTITY: {{ product.quantity }}</div>
-            <div id='title'> PRICE: {{ product.price }}</div>
+            {% if product.price == product.originalPrice %}
+                <div class="price">Price: {{ product.price }} EUR</div>
+            {% else %}
+                <div class="price">Old Price: <strike>{{ product.originalPrice }} EUR</strike></div>
+                <div class="price">Promo Price: {{ product.price }} EUR</div>
+            {% endif %}
             <div id='title'> SOLD BY: {{ product.owner }}</div>
             {% if user == product.user %}
                 Personal product: <a href="{{ path('product_update', {'id':product.id}) }}"> [ Edit ]</a>
                 <a href="{{ path('product_delete', {'id':product.id}) }}"> [ Delete ]</a>
-            {% elseif user.roles[0]=='ROLE_USER' %}
+            {% elseif app.user and user.roles[0]=='ROLE_USER' %}
                 <a href="{{ path('add_to_cart',{'productId':product.id}) }}">Add To Cart</a>
             {% endif %}
 

@@ -1,10 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Administrator Panel{% endblock %}
+
+
+{% block main %}
+
+
+
 <div class="text-right">
     <a href="{{ path("admin_add_promotion") }}" class="btn btn-success">Add new promotion <span
                 class="glyphicon glyphicon-plus-sign"></span></a>
     <hr>
     <a href="{{ path("admin_add_promotion_to_category") }}" class="btn btn-default">Set promotion to category <span
                 class="glyphicon glyphicon-plus-sign"></span></a>
-				<br>
     <a href="{{ path("admin_add_promotion_to_all_products") }}" class="btn btn-default">Set promotion to Products
         <span
                 class="glyphicon glyphicon-plus-sign"></span></a>
@@ -14,35 +21,41 @@
 </div>
 <hr>
 {% if promotions|length > 0 %}
-    <table class="table table-responsive table-striped">
-
+    <table class="table table-responsive table-striped" style="color: white; border: 2px solid white">
+        <tr>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Name</strong></td>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Discount</strong></td>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Start Date</strong></td>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>End Date</strong></td>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Number Of Products</strong></td>
+        <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px"><strong>Actions</strong></td>
+        </tr>
         <tbody>
         {% for promo in promotions %}
             <tr>
-                <td>{{ promo.id }}</td>
-                <td>
+
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">
                     {{ promo.name }}
-                    {% if promo.startDate > date('now') %}
-                        <span class="label label-warning">scheduled</span>
-                    {% endif %}
+
                 </td>
-                <td>{{ promo.discount }}%</td>
-                <td>{{ promo.startDate|date }}</td>
-                <td>{{ promo.endDate|date }}</td>
-                <td>{{ promo.productsWithActivePromo|length }}</td>
-                <td>
-                    <a href="{{ path("admin_edit_promotion", {"id": promo.id}) }}" class="btn btn-warning">Edit</a>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.discount }}%</td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.startDate|date }}</td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.endDate|date }}</td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">{{ promo.productsWithActivePromo|length }}</td>
+                <td style="color: white; border: 2px solid white; margin: 2px; padding: 2px">
+                    <a href="{{ path("admin_edit_promotion", {"id": promo.id}) }}" class="btn btn-warning">[ Edit ]</a>
+                     <a href="{{ path("admin_delete_promotion", {"id": promo.id}) }}" class="btn btn-warning">[ Delete ]</a>
                 </td>
-                <td>
-                    <form action="{{ path("admin_delete_promotion", {"id": promo.id}) }}" method="post">
-                        <button class="btn btn-danger delete-item" type="submit">Delete</button>
-                    </form>
-                </td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <br>
 
 {% else %}
-    <p>No promotions yet. Go add some</p>
+    <p>No promotions found</p>
 {% endif %}
+
+
+{% endblock %}

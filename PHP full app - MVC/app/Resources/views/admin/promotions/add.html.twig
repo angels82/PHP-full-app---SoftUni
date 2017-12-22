@@ -1,11 +1,24 @@
-{{ form_start(add_form) }}
+{% extends 'base.html.twig' %}
+{% block title %}Add Promotion{% endblock %}
 
-    {{ form_row(add_form.name) }}
-    {{ form_row(add_form.discount) }}
-    {{ form_row(add_form.startDate) }}
-    {{ form_row(add_form.endDate) }}
 
-<button class="btn btn-success" formnovalidate>Add <span class="glyphicon glyphicon-plus-sign"></span>
-</button>
+{% block main %}
+    <div style="color: white">
+        {{ form_start(add_form) }}
+        {{ form_label(add_form.name) }}<br>
+        {{ form_widget(add_form.name) }}<br>
+        {{ form_label(add_form.discount) }}<br>
+        {{ form_widget(add_form.discount) }}%<br>
+        {{ form_label(add_form.startDate) }}<br>
+        {{ form_widget(add_form.startDate) }}<br>
+        {{ form_label(add_form.endDate) }}<br>
+        {{ form_widget(add_form.endDate) }}<br><br><br>
 
-{{ form_end(add_form) }}
+        {{ form_widget(add_form.submit) }}<br>
+        {{ form_end(add_form) }}
+    </div>
+
+
+
+
+{% endblock %}
