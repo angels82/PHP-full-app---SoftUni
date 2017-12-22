@@ -29,11 +29,11 @@ class ProductTypeUpdate extends AbstractType
             ])
             ->add('imageFile', FileType::class, array('data_class' => null, 'required'=>false))
             ->add('quantity')
-            ->add('price')
+            ->add('original_price')
             ->add("promotions", EntityType::class, [
                 "class" => 'AppBundle\Entity\Promotion',
-                "multiple" => true,
-                "expanded" => true
+                "required" => false,
+                'placeholder'=>'Choose promotion'
             ])
         ->add('selling', ChoiceType::class, array(
                 'choices'  => array(

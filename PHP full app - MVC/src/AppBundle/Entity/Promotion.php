@@ -149,8 +149,8 @@ class Promotion
     public function getProductsWithActivePromo()
     {
         return $this->products->filter(function (Product $p) {
-            return $p->hasActivePromotion() &&
-                $p->getActualPromotion()->getName() == $this->getName();
+            return $p->hasActivePromotion(); /*&&
+                $p->getActualPromotion()->getName() == $this->getName();*/
         });
     }
 

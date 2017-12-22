@@ -6,10 +6,13 @@ use AppBundle\Entity\Product;
 use AppBundle\Entity\Role;
 use AppBundle\Entity\Roles;
 use AppBundle\Entity\User;
+use AppBundle\Form\banUserForm;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
@@ -147,5 +150,56 @@ class UserController extends Controller
             throw $this->createNotFoundException('No products found for the current user');
         }
         return $this->render('categories/viewUserProducts.html.twig', ['products'=>$products]);
+    }
+
+    /**
+     * @Route("/admin/banUser", name="ban")
+     * @param Request $request
+     * @return Response
+     */
+    public function banUser(Request $request) {
+
+        $em=$this->getDoctrine()->getManager();
+        $form = $this->createForm(banUserForm::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userChosen = $form->get("user")->getData();
+
+            //$user = $this->getDoctrine()->getRepository(User::class)->findBy(['user' => $userChosen]);
+            $userChosen->setIsActive(0);
+            $em->persist($userChosen);
+            $em->flush();
+            //echo '<pre>'; var_dump($userChosen->getIsActive());die();
+            return $this->redirectToRoute("admin_panel");
+        }
+
+        return $this->render("user/banUser.html.twig", [
+            "form" => $form->createView()
+        ]);
+    }
+    /**
+     * @Route("/admin/unbanUser", name="unban")
+     * @param Request $request
+     * @return Response
+     */
+    public function unbanUser(Request $request) {
+
+        $em=$this->getDoctrine()->getManager();
+        $form = $this->createForm(banUserForm::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userChosen = $form->get("user")->getData();
+
+            //$user = $this->getDoctrine()->getRepository(User::class)->findBy(['user' => $userChosen]);
+            $userChosen->setIsActive(1);
+            $em->persist($userChosen);
+            $em->flush();
+            //echo '<pre>'; var_dump($userChosen->getIsActive());die();
+            return $this->redirectToRoute("admin_panel");
+        }
+
+        return $this->render("user/unbanUser.html.twig", [
+            "form" => $form->createView()
+        ]);
     }
 }

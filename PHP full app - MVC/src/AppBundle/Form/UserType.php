@@ -3,9 +3,12 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,18 +20,18 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
+            ->add('username', TextType::class, array('label' => 'Username'))
             ->add('password', RepeatedType::class, [
                     'type' => PasswordType::class,
-                    'first_options'  => ['label' => 'Password', 'attr' => ['placeholder' => 'Password']],
-                    'second_options' => ['label' => 'Repeat Password', 'attr' => ['placeholder' => 'Repeat Password']],
+                    'first_options'  => ['label' => 'Password'],
+                    'second_options' => ['label' => 'Repeat Password'],
                 ]
             )
-            ->add('name')
-            ->add('email')
-            ->add('address')
-            ->add('city')
-            ->add('cash')
+            ->add('name', TextType::class, ['label' => 'Full Name'])
+            ->add('email', EmailType::class, ['label' => 'E-Mail'])
+            ->add('address', TextType::class, ['label' => 'Full Address'])
+            ->add('city', TextType::class, ['label' => 'City'])
+            ->add('cash', NumberType::class, ['label' => 'Cash'])
             ->add('submit', SubmitType::class);
     }
     

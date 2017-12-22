@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -31,15 +32,16 @@ class ProductType extends AbstractType
             ->add('price')
             ->add("promotions", EntityType::class, [
                 "class" => 'AppBundle\Entity\Promotion',
-                "multiple" => true,
-                "expanded" => true
+                'placeholder' => 'Choose promotion',
+                'required' => false
             ])
             ->add('selling', ChoiceType::class, array(
                 'choices'  => array(
                     'Yes' => 'Yes',
                     'No' => 'No',
                 ), 'placeholder'=>'Put for selling'
-            ));
+            ))
+        ->add('submit', SubmitType::class);
     }
     
     /**

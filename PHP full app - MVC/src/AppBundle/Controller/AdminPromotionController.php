@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
+use AppBundle\Form\ProductPromotionsForm;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,8 +42,9 @@ class AdminPromotionController extends Controller
             if ($product->getPromotions()->contains($promotion)) {
                 continue;
             }
-
+            if ($product->getOwner()=='shop') {
             $product->setPromotion($promotion);
+        }
         }
 
         $this->getDoctrine()->getManager()->persist($category);
@@ -57,18 +59,19 @@ class AdminPromotionController extends Controller
     public function setPromotionToProducts(Promotion $promotion)
     {
         $allProducts = $this->getDoctrine()->getRepository(Product::class)
-            ->findAll();
+            ->findBy(['owner' => 'shop']);
 
         foreach ($allProducts as $product) {
             /*if ($product->getPromotions()->contains($promotion)) {
                 continue;
             }*/
-
+var_dump($allProducts);die();
             $product->setPromotion($promotion);
-        }
 
+        }
         $this->getDoctrine()->getManager()->persist($promotion);
         $this->getDoctrine()->getManager()->flush();
+
 
         /*$this->session
             ->getFlashBag()
@@ -78,7 +81,7 @@ class AdminPromotionController extends Controller
     public function unsetPromotionToProducts(Promotion $promotion)
     {
         $allProducts = $this->getDoctrine()->getRepository(Product::class)
-            ->findAll();
+            ->findBy(['owner' => 'shop']);
 
         foreach ($allProducts as $product) {
             /*if (!$product->getPromotions()->contains($promotion)) {
@@ -275,5 +278,51 @@ class AdminPromotionController extends Controller
 
 
         return $this->render("admin/panel.html.twig");
+    }
+
+    public function setPromotionToSingleProduct(Promotion $promotion, Product $product)
+    {
+        /** @var ArrayCollection|Product[] $products */
+        $allProducts = $this->getDoctrine()->getRepository(Product::class)
+            ->findBy(['id' => $product->getId()]);
+        //foreach ($products as $product) {
+        foreach ($allProducts as $productS) {
+            $productS->setPromotion($promotion);
+}
+            
+
+
+        $this->getDoctrine()->getManager()->persist($promotion);
+        $this->getDoctrine()->getManager()->flush();
+    }
+    /*$this->session
+        ->getFlashBag()
+        ->add("success",
+            "All products of category '{$category->getName()}' was promoted with '{$promotion->getName()}' promotion");
+}*/
+
+    /**
+     * @Route("/productPromotion", name="admin_add_promotion_to_product")
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function addPromotionToSingleProductAction(Request $request)
+    {
+        $form = $this->createForm(ProductPromotionsForm::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $promotion = $form->get("promotion")->getData();
+            $product = $form->get("product")->getData();
+
+            //$promoService = $this->container->get("promotions");
+            $this->setPromotionToSingleProduct($promotion, $product);
+
+            return $this->redirectToRoute("admin_list_promotions");
+        }
+
+        return $this->render("admin/promotions/add_product.html.twig", [
+            "add_form" => $form->createView()
+        ]);
     }
 }
