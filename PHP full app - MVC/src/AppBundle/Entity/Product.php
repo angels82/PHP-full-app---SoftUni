@@ -49,7 +49,7 @@ class Product
      * @var string
      * @ORM\Column(name="selling", type="string", length=255)
      */
-    private $selling;
+    private $selling = 'Yes';
 
     /**
      * @return string

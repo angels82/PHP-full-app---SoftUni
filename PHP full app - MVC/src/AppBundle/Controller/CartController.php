@@ -155,6 +155,7 @@ class CartController extends Controller
                 # persist all cart data to can use it in create shipping object
                 $em->persist($cart);
 
+
                 # flush it
                 $em->flush();
                 # create shipping object
@@ -383,7 +384,7 @@ class CartController extends Controller
                     ->findBy(['user' => $user]);
 
                 $em->persist($user);
-                $em->persist($cartTotal);
+                $em->persist($cartTotal[0]);
 
                 $em->persist($newProduct);
 
