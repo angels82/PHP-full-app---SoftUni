@@ -1,0 +1,176 @@
+DoUsageStatistics<|||>3<|||>1
+LastUsageStatisticCall<|||>1<|||>2017-12-03 20:54:11
+LastSessions<|||>1<|||>Unnamed-1
+LastActiveSession<|||>1<|||>Unnamed-1
+ColWidths_connform.ListSessions<|||>1<|||>163,50,50,50,50,50,53
+ColsVisible_connform.ListSessions<|||>1<|||>0
+ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
+ColSort_connform.ListSessions<|||>1<|||>0,0
+CoolBand0Index<|||>3<|||>0
+CoolBand0Break<|||>3<|||>1
+CoolBand0Width<|||>3<|||>1360
+CoolBand1Index<|||>3<|||>1
+CoolBand1Break<|||>3<|||>1
+CoolBand1Width<|||>3<|||>1360
+MainWinOnMonitor<|||>3<|||>0
+ColWidths_MainForm.ListDatabases<|||>1<|||>150,80,50,50,50,50,50,50,50,50,120
+ColsVisible_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColPositions_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColSort_MainForm.ListDatabases<|||>1<|||>0,0
+ColWidths_MainForm.ListVariables<|||>1<|||>160,200,275
+ColsVisible_MainForm.ListVariables<|||>1<|||>0,1,2
+ColPositions_MainForm.ListVariables<|||>1<|||>0,1,2
+ColSort_MainForm.ListVariables<|||>1<|||>0,0
+ColWidths_MainForm.ListStatus<|||>1<|||>160,275,100,100
+ColsVisible_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColPositions_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColSort_MainForm.ListStatus<|||>1<|||>0,0
+ColWidths_MainForm.ListProcesses<|||>1<|||>70,80,80,80,80,50,50,154
+ColsVisible_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColPositions_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColSort_MainForm.ListProcesses<|||>1<|||>0,1
+ColWidths_MainForm.ListCommandStats<|||>1<|||>120,100,100,100,215
+ColsVisible_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColPositions_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColSort_MainForm.ListCommandStats<|||>1<|||>1,1
+ColWidths_MainForm.ListTables<|||>1<|||>120,70,70,120,120,70,100,50,70,70,70,70,70,90,120,70,70,70,50
+ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
+ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+ColSort_MainForm.ListTables<|||>1<|||>0,0
+ColWidths_frmTableEditor.listColumns<|||>1<|||>60,100,156,90,60,107,50,119,130,140,100,100
+ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColSort_frmTableEditor.listColumns<|||>1<|||>-1,0
+ColWidths_frmTableEditor.treeIndexes<|||>1<|||>324,100,80
+ColsVisible_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColPositions_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColSort_frmTableEditor.treeIndexes<|||>1<|||>-1,0
+ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>18,117,100,107,80,80
+ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
+sqloutheight<|||>3<|||>188
+MainWinMaximized<|||>3<|||>1
+Updatecheck<|||>3<|||>1
+UpdatecheckLastrun<|||>1<|||>2017-12-19 21:38:37
+SQLFile0<|||>1<|||>C:\Users\Angel's\Downloads\geography_database.sql
+SQLFile1<|||>1<|||>C:\Users\Angel's\AppData\Local\Temp\Rar$DIa0.101\geography_database.sql
+SQLFile2<|||>1<|||>C:\Users\Angel's\Desktop\sql.sql
+FileDialogEncoding_MainForm<|||>3<|||>0
+ExportSQL_Filenames<|||>1<|||>C:\Users\Angel's\Desktop\exam php\export.sql<{{{><}}}>C:\Users\Angel's\Desktop\carshop\cars.sql<{{{><}}}>cars<{{{><}}}>
+ColWidths_frmRoutineEditor.listParameters<|||>1<|||>19,763,90,70
+ColsVisible_frmRoutineEditor.listParameters<|||>1<|||>0,1,2,3
+ColPositions_frmRoutineEditor.listParameters<|||>1<|||>0,1,2,3
+ColSort_frmRoutineEditor.listParameters<|||>1<|||>-1,0
+querymemoheight<|||>3<|||>183
+DateTimeEditor_CursorPos_Type4<|||>3<|||>10
+MemoEditorWidth<|||>3<|||>132
+FindDialogSearchHistory<|||>1<|||>'<{{{><}}}>`<{{{><}}}>
+SQLHelp_PnlLeftWidth<|||>3<|||>285
+Servers\Unnamed\SessionCreated<|||>1<|||>2017-10-15 21:33:18
+Servers\Unnamed\Host<|||>1<|||>127.0.0.1
+Servers\Unnamed\WindowsAuth<|||>3<|||>0
+Servers\Unnamed\User<|||>1<|||>root
+Servers\Unnamed\Password<|||>1<|||>8
+Servers\Unnamed\LoginPrompt<|||>3<|||>0
+Servers\Unnamed\Port<|||>1<|||>3306
+Servers\Unnamed\NetType<|||>3<|||>0
+Servers\Unnamed\Compressed<|||>3<|||>0
+Servers\Unnamed\LocalTimeZone<|||>3<|||>0
+Servers\Unnamed\QueryTimeout<|||>3<|||>0
+Servers\Unnamed\KeepAlive<|||>3<|||>0
+Servers\Unnamed\FullTableStatus<|||>3<|||>1
+Servers\Unnamed\Databases<|||>1<|||>
+Servers\Unnamed\Comment<|||>1<|||>
+Servers\Unnamed\StartupScriptFilename<|||>1<|||>
+Servers\Unnamed\SSHtunnelHost<|||>1<|||>
+Servers\Unnamed\SSHtunnelHostPort<|||>3<|||>0
+Servers\Unnamed\SSHtunnelUser<|||>1<|||>
+Servers\Unnamed\SSHtunnelPassword<|||>1<|||>9
+Servers\Unnamed\SSHtunnelTimeout<|||>3<|||>4
+Servers\Unnamed\SSHtunnelPrivateKey<|||>1<|||>
+Servers\Unnamed\SSHtunnelPort<|||>3<|||>3307
+Servers\Unnamed\SSL_Active<|||>3<|||>0
+Servers\Unnamed\SSL_Key<|||>1<|||>
+Servers\Unnamed\SSL_Cert<|||>1<|||>
+Servers\Unnamed\SSL_CA<|||>1<|||>
+Servers\Unnamed\SSL_Cipher<|||>1<|||>
+Servers\Unnamed\RefusedCount<|||>3<|||>9
+Servers\Unnamed\ServerVersionFull<|||>1<|||>10.1.26-MariaDB - mariadb.org binary distribution
+Servers\Unnamed\ConnectCount<|||>3<|||>5
+Servers\Unnamed\ServerVersion<|||>3<|||>100126
+Servers\Unnamed\LastConnect<|||>1<|||>2017-10-15 22:44:43
+Servers\Unnamed\lastUsedDB<|||>1<|||>php_course
+Servers\Unnamed\php_course|students\Sort<|||>1<|||>1_student_number|
+Servers\Unnamed\QueryHistory\1<|||>1<|||>2017-10-15 21:37:22|test|0|CREATE DATABASE php_course;
+Servers\Unnamed-1\SessionCreated<|||>1<|||>2017-10-15 22:46:51
+Servers\Unnamed-1\Host<|||>1<|||>127.0.0.1
+Servers\Unnamed-1\WindowsAuth<|||>3<|||>0
+Servers\Unnamed-1\User<|||>1<|||>root
+Servers\Unnamed-1\Password<|||>1<|||>8
+Servers\Unnamed-1\LoginPrompt<|||>3<|||>0
+Servers\Unnamed-1\Port<|||>1<|||>3306
+Servers\Unnamed-1\NetType<|||>3<|||>0
+Servers\Unnamed-1\Compressed<|||>3<|||>0
+Servers\Unnamed-1\LocalTimeZone<|||>3<|||>0
+Servers\Unnamed-1\QueryTimeout<|||>3<|||>0
+Servers\Unnamed-1\KeepAlive<|||>3<|||>0
+Servers\Unnamed-1\FullTableStatus<|||>3<|||>1
+Servers\Unnamed-1\Databases<|||>1<|||>
+Servers\Unnamed-1\Comment<|||>1<|||>
+Servers\Unnamed-1\StartupScriptFilename<|||>1<|||>
+Servers\Unnamed-1\SSHtunnelHost<|||>1<|||>
+Servers\Unnamed-1\SSHtunnelHostPort<|||>3<|||>0
+Servers\Unnamed-1\SSHtunnelUser<|||>1<|||>
+Servers\Unnamed-1\SSHtunnelPassword<|||>1<|||>3
+Servers\Unnamed-1\SSHtunnelTimeout<|||>3<|||>4
+Servers\Unnamed-1\SSHtunnelPrivateKey<|||>1<|||>
+Servers\Unnamed-1\SSHtunnelPort<|||>3<|||>3307
+Servers\Unnamed-1\SSL_Active<|||>3<|||>0
+Servers\Unnamed-1\SSL_Key<|||>1<|||>
+Servers\Unnamed-1\SSL_Cert<|||>1<|||>
+Servers\Unnamed-1\SSL_CA<|||>1<|||>
+Servers\Unnamed-1\SSL_Cipher<|||>1<|||>
+Servers\Unnamed-1\ServerVersionFull<|||>1<|||>10.1.26-MariaDB - mariadb.org binary distribution
+Servers\Unnamed-1\ConnectCount<|||>3<|||>17
+Servers\Unnamed-1\ServerVersion<|||>3<|||>100126
+Servers\Unnamed-1\LastConnect<|||>1<|||>2017-12-20 21:43:50
+Servers\Unnamed-1\lastUsedDB<|||>1<|||>store
+Servers\Unnamed-1\RefusedCount<|||>3<|||>6
+Servers\Unnamed-1\exam|operations\Sort<|||>1<|||>1_on_date|
+Servers\Unnamed-1\QueryHistory\1<|||>1<|||>2017-10-15 22:53:52|phonebook|47|insert into `phones`<{{{><}}}>(`person_id`, `first_name`, `last_name`, `number`)<{{{><}}}>values<{{{><}}}>   (1, 'Ivan', 'Ivanov', 894123456);<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\2<|||>1<|||>2017-10-15 22:55:53|phonebook|843|ALTER TABLE `phones` AUTO_INCREMENT=1,<{{{><}}}>CHANGE COLUMN `person_id` `person_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT FIRST,<{{{><}}}>CHANGE COLUMN `number` `number` INT(10) UNSIGNED ZEROFILL NOT NULL AFTER `last_name`;<{{{><}}}>SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='phonebook';<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\3<|||>1<|||>2017-10-15 22:57:41|phonebook|47|insert into `phones`<{{{><}}}>   (`first_name`, `last_name`, `number`)<{{{><}}}>values<{{{><}}}>   ( 'Ivan', 'Stoyanov', 359894123456)<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\4<|||>1<|||>2017-10-15 23:07:14|phonebook|46|insert into `phones`<{{{><}}}>   (`first_name`, `last_name`, `number`)<{{{><}}}>values<{{{><}}}>   ( 'aaa', 'Stosssyanov', 345345345345)<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\5<|||>1<|||>2017-10-15 23:07:56|phonebook|0|select `last_name`, `number`<{{{><}}}>•	from `phones`<{{{><}}}>•	where `first_name` = 'Ivan'<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\6<|||>1<|||>2017-10-15 23:08:08|phonebook|0|select `last_name`, `number`<{{{><}}}>•	from `phones`<{{{><}}}>•	where `first_name` = 'aaa'<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\7<|||>1<|||>2017-10-28 12:39:45|cars|47|SELECT `cars`.`make`, `cars`.`model`, `sales`.`datetime_sale`, `sales`.`amount`, SUM(`amount`) <{{{><}}}>            FROM `cars`,`sales`<{{{><}}}>            where<{{{><}}}>            cars.car_id=sales.car_id<{{{><}}}>           
+Servers\Unnamed-1\QueryHistory\8<|||>1<|||>2017-10-28 12:40:14|cars|0|SELECT `cars`.`make`, `cars`.`model`, `sales`.`datetime_sale`, `sales`.`amount`<{{{><}}}>            FROM `cars`,`sales`<{{{><}}}>            where<{{{><}}}>            cars.car_id=sales.car_id<{{{><}}}>           
+Servers\Unnamed-1\QueryHistory\9<|||>1<|||>2017-10-28 15:21:54|cars|62|DELIMITER //<{{{><}}}> CREATE PROCEDURE get_sales()<{{{><}}}>   BEGIN<{{{><}}}>   SELECT SUM(`amount`) FROM sales;<{{{><}}}>   END //<{{{><}}}>DELIMITER ;<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\11<|||>1<|||>2017-10-28 15:24:35|cars|0|call get_sales<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\10<|||>1<|||>2017-10-28 15:39:50|cars|93|DELIMITER //<{{{><}}}><{{{><}}}>CREATE FUNCTION full_name(fname VARCHAR(250), lname VARCHAR(250))<{{{><}}}>    RETURNS VARCHAR(250)<{{{><}}}>    BEGIN<{{{><}}}>        DECLARE fullname VARCHAR(250);<{{{><}}}>        SET fullname=CONCAT(fname,' ',lname);<{{{><}}}>        RETURN fullname;<{{{><}}}>    END 
+Servers\Unnamed-1\QueryHistory\12<|||>1<|||>2017-10-28 15:53:03|cars|31|select full_name(fname, lname)<{{{><}}}>FROM customers
+Servers\Unnamed-1\QueryHistory\13<|||>1<|||>2017-10-28 15:53:15|cars|0|select full_name(fname, lname) as FullName<{{{><}}}>FROM customers
+Servers\Unnamed-1\QueryHistory\14<|||>1<|||>2017-10-28 16:07:22|cars|202|create view deal as<{{{><}}}>SELECT sales.datetime_sale, sales.amount, cars.make, cars.model, cars.year, customers.fname, customers.lname<{{{><}}}>from sales, cars, customers<{{{><}}}>where sales.car_id = cars.car_id and sales.customer_id=sales.customer_id
+Servers\Unnamed-1\QueryHistory\15<|||>1<|||>2017-10-28 16:10:02|cars|0|select * from deal
+Servers\Unnamed-1\QueryHistory\16<|||>1<|||>2017-10-28 22:50:05|php_course|234|CREATE TABLE `courses` (<{{{><}}}>	`course_id` INT NOT NULL AUTO_INCREMENT,<{{{><}}}>	`course_name` VARCHAR(50) NOT NULL,<{{{><}}}>	PRIMARY KEY (`course_id`)<{{{><}}}>)<{{{><}}}>COLLATE='latin1_swedish_ci'<{{{><}}}>ENGINE=InnoDB;
+Servers\Unnamed-1\QueryHistory\17<|||>1<|||>2017-10-28 23:09:18|php_course|63|SELECT COUNT(*) FROM students WHERE student_number=111
+Servers\Unnamed-1\QueryHistory\18<|||>1<|||>2017-11-12 13:17:56|exam|63|INSERT INTO operations (type, reason_id, sum, notes, for_date, user_id) VALUES ('O', (select id from reasons where name='Coffee'), '2.50', 'Costa','2017-10-04', (select id from users where username='peter'));
+Servers\Unnamed-1\QueryHistory\20<|||>1<|||>2017-11-12 13:27:24|exam|0|select users.username, users.full_name, users.born_on from users
+Servers\Unnamed-1\QueryHistory\21<|||>1<|||>2017-11-12 13:28:05|exam|0|select users.username, users.full_name, year(users.born_on) from users
+Servers\Unnamed-1\QueryHistory\22<|||>1<|||>2017-11-12 13:28:46|exam|0|select users.username, users.full_name, year(users.born_on) as 'year of born_on' from users;
+Servers\Unnamed-1\QueryHistory\23<|||>1<|||>2017-11-12 13:31:28|exam|31|select users.username, users.full_name, year(users.born_on) as 'year of born_on' from users<{{{><}}}> order by (current_date-users.born_on)
+Servers\Unnamed-1\QueryHistory\24<|||>1<|||>2017-11-12 13:32:12|exam|0|select users.username, users.full_name, year(users.born_on) as 'year of born_on' from users<{{{><}}}> order by (current_date-users.born_on), users.id;
+Servers\Unnamed-1\QueryHistory\25<|||>1<|||>2017-11-12 13:35:38|exam|0|select id, type, reason_id, sum, user_id from operations<{{{><}}}>order by for_date
+Servers\Unnamed-1\QueryHistory\26<|||>1<|||>2017-11-12 13:35:48|exam|0|select id, type, reason_id, sum, user_id, for_date from operations<{{{><}}}>order by for_date
+Servers\Unnamed-1\QueryHistory\27<|||>1<|||>2017-11-12 13:36:58|exam|0|select id, type, reason_id, sum, user_id from operations<{{{><}}}>order by for_date, id asc<{{{><}}}>limit 2,1
+Servers\Unnamed-1\QueryHistory\29<|||>1<|||>2017-11-12 13:39:07|exam|297|INSERT INTO operations (type, reason_id, sum, notes, for_date, user_id) VALUES ('I', (select id from reasons where name='Salary'), '500', '','2017-07-03', (select id from users where username='Alice'));<{{{><}}}>INSERT INTO operations (type, reason_id, sum, notes, for_date, user_id) VALUES ('O', (select id from reasons where name='Party'), '120.09', 'Club','2017-11-06', (select id from users where username='Alice'));<{{{><}}}>INSERT INTO operations (type, reason_id, sum, notes, for_date, user_id) VALUES ('O', (select id from reasons where name='Coffee'), '0.90', 'Game Bar','2017-09-7', (select id from users where username='Alice'));
+Servers\Unnamed-1\QueryHistory\19<|||>1<|||>2017-11-12 13:39:38|exam|0|select id, type, reason_id, sum, user_id from operations<{{{><}}}>order by for_date, id asc<{{{><}}}>limit 2,2
+Servers\Unnamed-1\QueryHistory\28<|||>1<|||>2017-11-12 13:40:24|exam|0|select id, type, reason_id, sum, user_id from operations<{{{><}}}>limit 2,2<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\30<|||>1<|||>2017-11-12 13:42:28|exam|0|select id, type, reason_id, sum, user_id, for_date from operations<{{{><}}}>order by for_date<{{{><}}}>limit 2,2<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\31<|||>1<|||>2017-11-12 13:42:33|exam|0|select id, type, reason_id, sum, user_id, for_date from operations<{{{><}}}>order by for_date<{{{><}}}><{{{><}}}>
+Servers\Unnamed-1\QueryHistory\32<|||>1<|||>2017-11-12 13:42:49|exam|0|select id, type, reason_id, sum, user_id, for_date from operations<{{{><}}}>order by for_date<{{{><}}}>limit 1,2<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\33<|||>1<|||>2017-11-12 13:42:54|exam|0|select id, type, reason_id, sum, user_id, for_date from operations<{{{><}}}>order by for_date, id<{{{><}}}>limit 1,2<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\34<|||>1<|||>2017-11-12 13:51:53|exam|0|select operations.id, operations.type, reasons.name, operations.sum, users.username from operations<{{{><}}}>inner join users on users.id=operations.user_id<{{{><}}}>inner join reasons on operations.reason_id=reasons.id<{{{><}}}>
+Servers\Unnamed-1\QueryHistory\35<|||>1<|||>2017-11-12 13:52:28|exam|0|select operations.id, operations.type, reasons.name, operations.sum, users.username from operations<{{{><}}}>inner join users on users.id=operations.user_id<{{{><}}}>inner join reasons on operations.reason_id=reasons.id<{{{><}}}>order by operations.id<{{{><}}}>
+Servers\Unnamed-1\store|user\Sort<|||>1<|||>0_is_active|
